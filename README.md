@@ -1,3 +1,29 @@
+# What do I do if LineageOS doesn't have a kernel repo for my device's SOC? (assuming it's SMx3xx, where the second digit is specifically 3)
+- The second digit of the SOC's codename matters, but look for the closest. For example, the Snapdragon 4 Gen 1 is the SM4375, and the closest that LineageOS already offers is the SM6375. In that case, make a fork of LineageOS/android_kernel_motorola_sm6375. All the latest mainstream devices run GKI kernels, meaning that it shouldn't matter as long as the second digit of the SOC's codename is the same.
+- Go to https://github.com/MotorolaMobilityLLC/kernel-msm/ and find the branch or tag for your device's build ID. For example, fogo (Moto G 5G 2024) has a build ID that starts with U1UFNS34. If there isn't one available, submit a request in the issues tab, such as https://github.com/MotorolaMobilityLLC/kernel-msm/issues/672 after reviewing all the kernel-*-devicetree repos under MotorolaMobilityLLC to make sure if there's a branch or tag for your device's build ID.
+- In `arch/arm64/boot/configs/vendor`, copy both `debug-[holi/lahaina]-(devicename).config` and `moto-[holi/lahaina]-(devicename).config` into this repo's `arch/arm64/boot/configs/vendor`.
+- If available, find the tag for your device's build ID in both kernel-devicetree and all kernel-*-devicetree repos, and download them. Delete each `.gitignore` in the downloads.
+- First, extract the `qcom` folder of `kernel-devicetree-MMI-*` into `arch/arm64/boot/dts/vendor`, saying no to replacing any file.
+- Compare the makefile in your download with the one that exists, and add anything that's new.
+- Extract all subsequent `kernel-*-MMI-*` ZIPs into `arch/arm64/boot/dts/vendor/qcom`, while skipping the `bindings` folder and saying no to replacing any file.
+- If there's a `.gitignore` in `arch/arm64/boot/dts/vendor`, check it if it includes any directories that are being pasted into. Delete them if yes.
+- (re-)Generate the defconfig, whether it's `holi-qgki_defconfig` or `lahaina-qgki_defconfig`, by running this in your terminal, assuming that your board family is holi (SM43xx), or replace "holi" with "lahaina" if it's not a Snapdragon 4 series SOC:
+```bash
+PATH="/path/to/lineageos/prebuilts/tools-lineage/linux-x86/bin:/path/to/lineageos/prebuilts/clang/host/linux-x86/clang-r530567/bin:$PATH"
+ARCH=arm64 \
+CROSS_COMPILE=aarch64-linux-gnu- \
+REAL_CC=clang \
+CLANG_TRIPLE=aarch64-linux-gnu- \
+LD=ld.lld \
+AR=llvm-ar \
+LLVM=1 \
+LLVM_IAS=1 \
+scripts/gki/generate_defconfig.sh \
+vendor/holi-qgki_defconfig
+```
+- In the cases of symbols being undefined when they're clearly defined in the source code, compare your `lineage_(codename).config` with the others that exist while also referencing from a complete description of your device, such as via the deviceinfohw database. Ignore config options like `CONFIG_ARCH_(X)`, and also check to see if any `# CONFIG_* is not set` conflicts with the same configs being set.
+
+
 # How do I submit patches to Android Common Kernels
 
 1. BEST: Make all of your changes to upstream Linux. If appropriate, backport to the stable releases.
