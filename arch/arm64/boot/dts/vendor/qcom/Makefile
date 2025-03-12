@@ -46,6 +46,168 @@ yupik-berlin-dvt1b-overlay.dtbo-base := yupik-moto-base.dtb
 yupik-berlna-evb-overlay.dtbo-base := yupik-moto-base.dtb
 yupik-dubai-evb-overlay.dtbo-base := yupik-moto-base.dtb
 
+dtbo-$(CONFIG_DENVER_DTB) += \
+        holi-denver-evt1-overlay.dtbo \
+        holi-denver-evt2-overlay.dtbo \
+        holi-denver-dvt1-overlay.dtbo \
+        holi-denver-dvt2-overlay.dtbo \
+        holi-denver-pvt-overlay.dtbo
+
+holi-denver-evt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-denver-evt2-overlay.dtbo-base := holi-moto-base.dtb
+holi-denver-dvt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-denver-dvt2-overlay.dtbo-base := holi-moto-base.dtb
+holi-denver-pvt-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_IBIZA_DTB) += \
+        holi-ibiza-evt1-overlay.dtbo \
+        holi-ibiza-evt2-overlay.dtbo \
+        holi-ibiza-evt3-overlay.dtbo \
+        holi-ibiza-dvt1-overlay.dtbo \
+        holi-ibiza-dvt2-overlay.dtbo \
+        holi-ibiza-pvt-overlay.dtbo
+
+holi-ibiza-evt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-ibiza-evt2-overlay.dtbo-base := holi-moto-base.dtb
+holi-ibiza-evt3-overlay.dtbo-base := holi-moto-base.dtb
+holi-ibiza-dvt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-ibiza-dvt2-overlay.dtbo-base := holi-moto-base.dtb
+holi-ibiza-pvt-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_CORFUP_DTB) += \
+        holi-corfup-evb-overlay.dtbo \
+        holi-corfup-evt1-overlay.dtbo \
+        holi-corfup-evt2-overlay.dtbo \
+        holi-corfup-dvt1-overlay.dtbo
+
+
+holi-corfup-evb-overlay.dtbo-base := holi-moto-base.dtb
+holi-corfup-evt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-corfup-evt2-overlay.dtbo-base := holi-moto-base.dtb
+holi-corfup-dvt1-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_CORFUQ_DTB) += \
+        holi-corfuq-dvt1a-overlay.dtbo \
+	holi-corfuq-dvt1c-overlay.dtbo
+
+holi-corfuq-dvt1a-overlay.dtbo-base := holi-moto-base.dtb
+holi-corfuq-dvt1c-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_CORFUR_DTB) += \
+	blair-corfur-dvt1b-overlay.dtbo \
+	blair-corfur-dvt1d-overlay.dtbo
+
+blair-corfur-dvt1b-overlay.dtbo-base := blair-moto-base.dtb
+blair-corfur-dvt1d-overlay.dtbo-base := blair-moto-base.dtb
+
+dtbo-$(CONFIG_CYPFG_DTB) += \
+        holi-cypfg-evb-overlay.dtbo \
+	holi-cypfg-evt-overlay.dtbo
+
+holi-cypfg-evb-overlay.dtbo-base := holi-moto-base.dtb
+holi-cypfg-evt-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_CYPFQ_DTB) += \
+        holi-cypfq-dvt1-overlay.dtbo \
+        holi-cypfq-dvt2-overlay.dtbo \
+        holi-cypfq-pvt-overlay.dtbo
+
+holi-cypfq-dvt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-cypfq-dvt2-overlay.dtbo-base := holi-moto-base.dtb
+holi-cypfq-pvt-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_RHODEC_DTB) += \
+        holi-rhodec-evb-overlay.dtbo
+
+holi-rhodec-evb-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_CYPFR_DTB) += \
+        blair-cypfr-evb-overlay.dtbo \
+        blair-cypfr-evt-overlay.dtbo \
+        blair-cypfr-dvt2-overlay.dtbo
+
+blair-cypfr-evb-overlay.dtbo-base := blair-moto-base.dtb
+blair-cypfr-evt-overlay.dtbo-base := blair-moto-base.dtb
+blair-cypfr-dvt2-overlay.dtbo-base := blair-moto-base.dtb
+
+dtbo-$(CONFIG_MILANF_DTB) += \
+        blair-milanf-evb1-overlay.dtbo \
+        blair-milanf-evb2-overlay.dtbo \
+        blair-milanf-dvt1-overlay.dtbo \
+        blair-milanf-dvt2-overlay.dtbo
+
+blair-milanf-evb1-overlay.dtbo-base := blair-moto-milanf-base.dtb
+blair-milanf-evb2-overlay.dtbo-base := blair-moto-milanf-base.dtb
+blair-milanf-dvt1-overlay.dtbo-base := blair-moto-milanf-base.dtb
+blair-milanf-dvt2-overlay.dtbo-base := blair-moto-milanf-base.dtb
+
+dtbo-$(CONFIG_BANGKK_DTB) += \
+        blair-bangkk-evb1-overlay.dtbo
+
+blair-bangkk-evb1-overlay.dtbo-base := blair-moto-bangkk-base.dtb
+
+dtbo-$(CONFIG_FOGOR_DTB) += \
+        blair-fogor-evb-overlay.dtbo
+
+blair-fogor-evb-overlay.dtbo-base := blair-moto-fogor-base.dtb
+
+dtbo-$(CONFIG_FOGOS_DTB) += \
+        blair-fogos-evt-overlay.dtbo \
+        blair-fogos-dvt1-overlay.dtbo
+
+blair-fogos-evt-overlay.dtbo-base := blair-moto-fogos-base.dtb
+blair-fogos-dvt1-overlay.dtbo-base := blair-moto-fogos-base.dtb
+
+dtbo-$(CONFIG_FOGO_DTB) += \
+        blair-fogo-evb-overlay.dtbo
+
+blair-fogo-evb-overlay.dtbo-base := blair-moto-fogo-base.dtb
+
+
+dtbo-$(CONFIG_PENANG_DTB) += \
+        holi-penang-dvt2-jp-overlay.dtbo \
+        holi-penang-dvt2-sb-overlay.dtbo \
+        holi-penang-evt1-overlay.dtbo
+
+holi-penang-evt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-penang-dvt2-jp-overlay.dtbo-base := holi-moto-base.dtb
+holi-penang-dvt2-sb-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_PENANGB_DTB) += \
+        holi-penangb-dvt2-jp-overlay.dtbo \
+        holi-penangb-dvt2-sb-overlay.dtbo \
+        holi-penangb-evt1-overlay.dtbo
+
+holi-penangb-evt1-overlay.dtbo-base := holi-moto-base.dtb
+holi-penangb-dvt2-jp-overlay.dtbo-base := holi-moto-base.dtb
+holi-penangb-dvt2-sb-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_PNANGN_DTB) += \
+        holi-pnangn-evt1-overlay.dtbo
+
+holi-pnangn-evt1-overlay.dtbo-base := holi-moto-base.dtb
+
+dtbo-$(CONFIG_RHODEP_DTB) += \
+        blair-rhodep-evt1-overlay.dtbo \
+        blair-rhodep-evt2-overlay.dtbo \
+        blair-rhodep-dvt1-overlay.dtbo \
+        blair-rhodep-dvt2-overlay.dtbo
+
+blair-rhodep-evt1-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+blair-rhodep-evt2-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+blair-rhodep-dvt1-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+blair-rhodep-dvt2-overlay.dtbo-base := blair-moto-rhodep-base.dtb
+
+dtbo-$(CONFIG_RHODEI_DTB) += \
+        blair-rhodei-evt1-overlay.dtbo
+
+blair-rhodei-evt1-overlay.dtbo-base := blair-moto-rhodei-base.dtb
+
+dtbo-$(CONFIG_MIAMI_DTB) += \
+        blair-miami-evt1-overlay.dtbo
+
+blair-miami-evt1-overlay.dtbo-base := blair-moto-miami-base.dtb
+
 else
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
