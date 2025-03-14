@@ -24,7 +24,7 @@ REQUIRED_DEFCONFIG=${2}
 echo "moto framgement config: LOCAL_PLATFORM_NAME=${LOCAL_PLATFORM_NAME} TARGET_PRODUCT_NAME=$TARGET_PRODUCT_NAME TARGET_PRODUCT_TYPE=$TARGET_PRODUCT_TYPE"
 
 #skip msi products
-if [ $TARGET_PRODUCT_NAME == "msi" ]; then
+if [[ $TARGET_PRODUCT_NAME == "msi" ]]; then
     echo "This is msi, skip moto config fragements"
     exit 0
 fi
@@ -33,7 +33,7 @@ MOTO_CONFIG_DIR=$CONFIGS_DIR/ext_config
 export MOTO_REQUIRED_CONFIG=""
 
 # merge factory config or userdebug config
-if [ $TARGET_PRODUCT_TYPE == "factory" ]; then
+if [[ $TARGET_PRODUCT_TYPE == "factory" ]]; then
     if [ -e $MOTO_CONFIG_DIR/factory-${LOCAL_PLATFORM_NAME}-${TARGET_PRODUCT_NAME}.config ]; then
         MOTO_REQUIRED_CONFIG+=" $MOTO_CONFIG_DIR/factory-${LOCAL_PLATFORM_NAME}-${TARGET_PRODUCT_NAME}.config"
     fi
@@ -41,7 +41,7 @@ if [ $TARGET_PRODUCT_TYPE == "factory" ]; then
     if [ -e $MOTO_CONFIG_DIR/factory-${LOCAL_PLATFORM_NAME}.config ]; then
         MOTO_REQUIRED_CONFIG+=" $MOTO_CONFIG_DIR/factory-${LOCAL_PLATFORM_NAME}.config"
     fi
-elif [ $TARGET_BUILD_VARIANT == "userdebug" ] && [ $REQUIRED_DEFCONFIG != ${LOCAL_PLATFORM_NAME}-gki_defconfig ]; then
+elif [[ $TARGET_BUILD_VARIANT == "userdebug" ]] && [ $REQUIRED_DEFCONFIG != ${LOCAL_PLATFORM_NAME}-gki_defconfig ]; then
     if [ -e $MOTO_CONFIG_DIR/debug-${LOCAL_PLATFORM_NAME}-${TARGET_PRODUCT_NAME}.config ]; then
         MOTO_REQUIRED_CONFIG+=" $MOTO_CONFIG_DIR/debug-${LOCAL_PLATFORM_NAME}-${TARGET_PRODUCT_NAME}.config"
     fi
