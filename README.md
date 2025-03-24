@@ -21,7 +21,8 @@ LLVM_IAS=1 \
 scripts/gki/generate_defconfig.sh \
 vendor/holi-qgki_defconfig
 ```
-- In the cases of symbols being undefined when they're clearly defined in the source code, compare your `lineage_(codename).config` with the others that exist while also referencing from a complete description of your device, such as via the deviceinfohw database. Ignore config options like `CONFIG_ARCH_(X)`, and also check to see if any `# CONFIG_* is not set` conflicts with the same configs being set.
+- Copy the `vendor/ext_config/moto-[holi/lahaina]-(devicename).config` into the parent `configs` folder, and rename it to `lineage_(devicename).config`. Then add additional config options based on both your `modules.load` and the build instructions for your device build ID in https://github.com/MotorolaMobilityLLC/readme. Evaluate the differences between an existing `lineage_(devicename).config` and its corresponding `ext_config` using a program like Meld, and also check for any reasons in the commit histories for the specific `lineage_(devicename).config` files and compare specific hardware names with what's shown for your device on CPU-Z or DeviceInfoHW.
+ - If a build guide doesn't exist there, not even in different tags and branches, submit a request in the issues tab. In the meantime, copy your device's boot.img to the kernel root directory, open your terminal there, and run the following: `scripts/extract-ikconfig boot.img > arch/arm64/configs/[devicename]_defconfig`, and use that instead of the above.
 
 
 # How do I submit patches to Android Common Kernels
