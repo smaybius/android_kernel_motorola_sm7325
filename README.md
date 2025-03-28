@@ -22,7 +22,7 @@ scripts/gki/generate_defconfig.sh \
 vendor/holi-qgki_defconfig
 ```
 - Copy the `vendor/ext_config/moto-[holi/lahaina]-(devicename).config` into the parent `configs` folder, and rename it to `lineage_(devicename).config`. Then add additional config options based on both your `modules.load` and the build instructions for your device build ID in https://github.com/MotorolaMobilityLLC/readme. Evaluate the differences between an existing `lineage_(devicename).config` and its corresponding `ext_config` using a program like Meld, and also check for any reasons in the commit histories for the specific `lineage_(devicename).config` files and compare specific hardware names with what's shown for your device on CPU-Z or DeviceInfoHW.
- - If a build guide doesn't exist there, not even in different tags and branches, submit a request in the issues tab. In the meantime, copy your device's boot.img to the kernel root directory, open your terminal there, and run the following: `scripts/extract-ikconfig boot.img > arch/arm64/configs/[devicename]_defconfig`, and use that instead of the above.
+ - If a build guide doesn't exist there, not even in different tags and branches, submit a request in the issues tab. In the meantime, stick to `modules.load` instead and use the scripts provided in `device_motorola_fogo` for convenience.
 
 
 # How do I submit patches to Android Common Kernels
